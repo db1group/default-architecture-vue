@@ -1,0 +1,1 @@
+# default-architecture-vue
