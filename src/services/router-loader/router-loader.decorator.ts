@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import { RouteInfo } from './route-info.interface';
+import { RouteInfo } from './route-info.entity';
 
 export function Route(routeConfig: RouteInfo) {
   return (target: any) => {

@@ -44,21 +44,21 @@ export default class ExampleComponent extends Vue {}
 import { Entity, Body, Type } from '@/services/entity/entity.decorator';
 
 @Entity
-export class Hero {
-  @Body()
-  public name!: string;
-
-  @Type(SuperPower)
-  public superPowers!: SuperPower[];
-}
-
-@Entity
 export class SuperPower {
   @Body()
   public title!: string;
 
   @Body()
   public description!: string;
+}
+
+@Entity
+export class Hero {
+  @Body()
+  public name!: string;
+
+  @Type(SuperPower)
+  public superPowers!: SuperPower[];
 }
 ```
 

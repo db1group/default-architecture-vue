@@ -1,6 +1,5 @@
-import { RouteConfig, Route } from 'vue-router';
-import { RouteInfo } from './route-info.interface';
-import { RouteInfoIMPL } from './route-info.impl';
+import { RouteConfig } from 'vue-router';
+import { RouteInfo, Route } from './route-info.entity';
 
 export class RouteFromViewLoader {
   private routes: any[] = [];
@@ -24,7 +23,7 @@ export class RouteFromViewLoader {
   private put(fileName: string): void {
     const componentData: any = this.loader(fileName).default;
     const routeInfo: RouteInfo = componentData.getRouteInfo();
-    this.routes.push(new RouteInfoIMPL(
+    this.routes.push(new Route(
       fileName,
       routeInfo.path,
       routeInfo.name,
@@ -36,11 +35,11 @@ export class RouteFromViewLoader {
   private process(): void {
     let nestLevel: number = 0;
     while (
-      this.routes.some((route: RouteInfoIMPL) => route.nestLevel === nestLevel)
+      this.routes.some((route: any) => route.nestLevel === nestLevel)
     ) {
       this.routes
-        .filter((route: RouteInfoIMPL) => route.nestLevel === nestLevel)
-        .forEach((route: RouteInfoIMPL) => {
+        .filter((route: any) => route.nestLevel === nestLevel)
+        .forEach((route: any) => {
           if (nestLevel > 0) {
             this.processWithParent(route);
             return;
@@ -96,7 +95,7 @@ export class RouteFromViewLoader {
     return routeConfig;
   }
 
-  private processWithParent(route: RouteInfoIMPL): void {
+  private processWithParent(route: any): void {
     if (!route.parent) {
       return;
     }
@@ -114,7 +113,7 @@ export class RouteFromViewLoader {
     parentRouteConfig.children.push(route.routeConfig);
   }
 
-  private processWithoutParent(route: RouteInfoIMPL): void {
+  private processWithoutParent(route: any): void {
     if (!this.routesConfig.some((routeConfig: RouteConfig) => routeConfig.name === route.name)) {
       this.routesConfig.push(route.routeConfig);
     }

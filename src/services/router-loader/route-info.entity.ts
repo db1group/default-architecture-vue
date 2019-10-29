@@ -1,6 +1,30 @@
-import { RouteInfo, RouteMeta, RouteConfig } from './route-info.interface';
+import { Vue } from 'vue-property-decorator';
+import { RouteConfig as RouteConfigBase } from 'vue-router';
 
-export class RouteInfoIMPL implements RouteInfo {
+export interface RouteBreadcrumbs {
+  type?: string;
+  title: string;
+  route: string;
+}
+
+export interface RouteMeta {
+  breadcrumbs?: RouteBreadcrumbs[];
+  [key: string]: any;
+}
+
+export interface RouteInfo {
+  readonly path: string;
+  readonly name: string;
+  meta?: RouteMeta;
+  parent?: RouteInfo | Vue | any;
+  getRouteInfo?: () => RouteInfo;
+}
+
+export interface RouteConfig extends RouteConfigBase {
+  readonly fileName: string;
+}
+
+export class Route {
   constructor(
     readonly fileName: string,
     readonly path: string,
