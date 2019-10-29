@@ -4,13 +4,13 @@ This is an open source MIT project tha has been made to facilitate the developme
 
 Project stacks:
 
-* [Vuejs](https://vuejs.org/)
-* [Vuetify](https://vuetifyjs.com)
-* [Typescript](https://www.typescriptlang.org/)
-* [Pug](https://pugjs.org)
-* [Sass](https://sass-lang.com/)
-* [Jest](https://jestjs.io/)
-* [Cypress](https://www.cypress.io/)
+* [Vuejs 2.6.10](https://vuejs.org/)
+* [Vuetify 2.1.0](https://vuetifyjs.com)
+* [Typescript 3.6.4](https://www.typescriptlang.org/)
+* [Pug 2.0.4](https://pugjs.org)
+* [Sass node-sass@4.12.0](https://sass-lang.com/)
+* [Jest 23.6.0](https://jestjs.io/)
+* [Cypress 3.5.0](https://www.cypress.io/)
 
 ## Features and examples
 
@@ -62,7 +62,7 @@ export class Hero {
 }
 ```
 
-### Creating an service
+### Creating a service
 ``` typescript
 @Service()
 export default class HeroService {
