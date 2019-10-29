@@ -1,0 +1,30 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended"
+  ],
+  "linterOptions": {
+    "exclude": ["node_modules/**", "*.json", "**/*.json"]
+  },
+  "rules": {
+    "quotemark": [true, "single"],
+    "indent": [true, "spaces", 2],
+    "max-line-length": [
+      true,
+      {
+        "limit": 100,
+        "ignore-pattern": "^import (.*?)",
+        "check-strings": false
+      }
+    ],
+    "interface-name": false,
+    "no-boolean-literal-compare": false,
+    "ordered-imports": false,
+    "object-literal-sort-keys": false,
+    "no-this-assignment": false,
+    "no-consecutive-blank-lines": true,
+    "function-name": false,
+    "import-name": false,
+    "max-classes-per-file": false
+  }
+}
